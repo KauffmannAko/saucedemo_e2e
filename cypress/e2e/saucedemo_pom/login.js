@@ -1,28 +1,30 @@
 class Login {
-usernameField = '.form_group #user-name';
-passwordField = '.form_group #password';
-loginBtn = '#login-button';
 
-// setUsername: This method sets the username field
-//  with the given username
-setUsername(username){
-    cy.get(this.usernameField).type(username);
 
-}
-
-// setPassword: This method sets the password field 
-// with the given password.
-setPassword(password){
-    cy.get(this.passwordField).type(password);
+    // Get all required elements in the
+    // logn page 
+elements = {
+    getUsernameField:() => cy.get('.form_group #user-name'),
+    getPasswordField:() => cy.get('.form_group #password'),
+    getLoginBtn:() => cy.get('#login-button'),
 
 }
 
-// clickLoginBtn: This method clicks on the login 
-// button.
+// Enter user name
+setUsernameAndPassword(username,password){
+    
+    this.elements.getUsernameField().type(username);
+    this.elements.getPasswordField().type(password);
+
+
+}
+
+// Login
 clickLoginBtn(){
-    cy.get(this.loginBtn).click()
+    this.elements.getLoginBtn().click()
 }
 
 
 
 }
+export default Login;

@@ -5,8 +5,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    pageLoadTimeout:100000,
     env: {
-      url: 'https://www.saucedemo.com/',
+      BaseUrl:'https://www.saucedemo.com/',
     },
 
     specPattern:'cypress/e2e/saucedemoe2e/*.js',
